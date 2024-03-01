@@ -20,7 +20,7 @@ const GalleryArea = () => {
     let dentist = new Painting("Dentist in his Office", "Dr. Dentist DDS", "2020", "http://ioglstaging.wpengine.com/wp-content/uploads/2023/06/josh-prentice-hero.png")
     paintings.push(dentist)
 
-    let dentist1 = new Painting("Dentist in his Office2", "Dr. Dentist DDS", "2020", "http://ioglstaging.wpengine.com/wp-content/uploads/2023/06/josh-prentice-hero.png")
+    let dentist1 = new Painting("Dentist in his Office2", "Dr. Dentist DDS", "2020", "http://ioglstaging.wpengine.com/wp-content/uploads/2023/12/io-tradeshow-products-all.png")
     paintings.push(dentist1)
 
     let createPainting = (painting) => {

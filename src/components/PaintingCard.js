@@ -2,8 +2,11 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 import React, {useState} from 'react';
+import EditModal from './EditModal';
 
 const PaintingCard = (props) => {
+  const [modalShow, setModalShow] = React.useState(false);
+
 
     return (
     <Card style={{ width: '18rem' }} className="m-2 p-0" >
@@ -18,8 +21,10 @@ const PaintingCard = (props) => {
           <Card.Link href={props.link}>View Image</Card.Link>
         </ListGroup.Item>
         <ListGroup.Item>
-        <Button  className="btn" variant='primary' size="md" href="#">Edit</Button>
-        <Button  className="btn" variant="danger" size="md" href="#">Delete</Button>
+          <Button  className="btn" variant='primary' onClick={() => setModalShow(true)} size="md" href="#">Edit</Button>
+          <EditModal show={modalShow} link={props.link} onHide={() => setModalShow(false)} />
+
+          <Button  className="btn" variant="danger" size="md" href="#">Delete</Button>
         </ListGroup.Item>
       </ListGroup>
       
