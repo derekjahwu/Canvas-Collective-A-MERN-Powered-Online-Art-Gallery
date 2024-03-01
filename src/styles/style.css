@@ -1,0 +1,33 @@
+grid-breakpoints {  
+    --xs: 0;
+    --sm: 576px;
+    --md: 768px;
+    --lg: 992px;
+    --xl: 1200px;
+    --xxl: 1400px
+}
+
+
+.main-container{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin:auto;
+    width:50%;
+}
+
+.art-title{
+    font-size:17px;
+    font-weight: 500;
+}
+
+.btn{
+    margin-right:10px;
+}
+
+@media (max-width: 576px) {
+    .main-container{
+        width:100%;
+    }
+}
