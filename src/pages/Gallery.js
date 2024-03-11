@@ -2,7 +2,6 @@ import Button from 'react-bootstrap/Button';
 import GalleryArea from '../components/GalleryArea.js'
 import Container from 'react-bootstrap/Container';
 import React from 'react'
-import EditModal from '../components/EditModal.js'
 import '../styles/style.css'
 
 const Gallery = () => {
