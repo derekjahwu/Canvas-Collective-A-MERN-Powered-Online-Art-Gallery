@@ -32,7 +32,6 @@ const handleTitleChange = (e) => {
         date: date,
         link: link,
         })
-        .then(window.location.replace('/gallery'))
         .catch(function (error) {
             console.log(error);
           });
