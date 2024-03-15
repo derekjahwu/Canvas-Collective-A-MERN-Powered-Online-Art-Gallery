@@ -7,14 +7,13 @@ grid-breakpoints {
     --xxl: 1400px
 }
 
-
 .main-container{
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin:auto;
-    width:50%;
+    width:auto;
 }
 
 .art-title{
@@ -26,8 +25,12 @@ grid-breakpoints {
     margin-right:10px;
 }
 
-@media (max-width: 576px) {
-    .main-container{
-        width:100%;
+@media (max-width: 750px) {
+    .row{
+        justify-content: center;
+    }
+
+    .card{
+        width:90% !important;
     }
 }

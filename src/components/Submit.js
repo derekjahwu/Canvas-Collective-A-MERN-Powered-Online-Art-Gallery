@@ -24,17 +24,24 @@ const handleTitleChange = (e) => {
     setLink(e.target.value)
   }
 
+  const postPainting = async () => {
+      await axios.post(`https://us-west-2.aws.data.mongodb-api.com/app/art-gallery-vbfmj/endpoint/painting`,{
+      title: title,
+      artist: artist,
+      date: date,
+      link: link,
+      idNum: Date.now().toString()
+      })
+  }
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post(`https://us-west-2.aws.data.mongodb-api.com/app/art-gallery-vbfmj/endpoint/painting`,{
-        title: title,
-        artist: artist,
-        date: date,
-        link: link,
+
+        postPainting()
+        .then(() => {
+          window.location.replace("/gallery")
         })
-        .catch(function (error) {
-            console.log(error);
-          });
+        .catch(error => console.log(error))
     }
 
     return (

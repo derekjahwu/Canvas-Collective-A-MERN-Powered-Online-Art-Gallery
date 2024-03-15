@@ -25,18 +25,23 @@ const EditModal = (props) => {
     setLink(e.target.value)
   }
 
-  const updateServer = () => {
-    axios.put(`http://localhost:3000/gallery/${props.idnum}`, {
-      title: newTitle === '' ? props.title : newTitle,
-      artist: newArtist === '' ? props.artist : newArtist,
-      date: newDate === '' ? props.date : newDate,
-      link: newLink === '' ? props.link : newLink,
-      idNum: props.idnum
+  const updatePainting = async () => {
+    await axios.put(`https://us-west-2.aws.data.mongodb-api.com/app/art-gallery-vbfmj/endpoint/painting?idNum=${props.idNum}`, {
+      "title": newTitle === '' ? props.title : newTitle,
+      "artist": newArtist === '' ? props.artist : newArtist,
+      "date": newDate === '' ? props.date : newDate,
+      "link": newLink === '' ? props.link : newLink,
+      "idNum": props.idNum
     })
-    .then(window.location.assign('/gallery'))
-    .catch(err => {
-      console.log(err)
+  }
+
+  const handleUpdate = () => {
+    updatePainting()
+    .then(() => {
+      props.onHide()
+      window.location.replace('/gallery')
     })
+    .catch((err) => {console.log(err)})
   }
 
     return (
@@ -65,10 +70,13 @@ const EditModal = (props) => {
                 </Form>
       </Modal.Body>
       <Modal.Footer>
+      <Button  className="btn" variant="danger" size="md" href="#" onClick={() => {
+        props.handleDelete()
+        }}>Delete</Button>
         <Button onClick={() => {
-          props.onHide()
-          updateServer()
+          handleUpdate()
           }}>Save Changes</Button>
+          
       </Modal.Footer>
     </Modal>
 

@@ -4,6 +4,7 @@ import React, {useState, useEffect} from 'react';
 import Row from 'react-bootstrap/Row';
 import axios from 'axios';
 
+
 const GalleryArea = () => {
     const [collection, setCollection] = useState([])
 
@@ -12,20 +13,25 @@ const GalleryArea = () => {
     };
 
     let createPainting = (painting) => {
-        return <PaintingCard  title={painting.title} artist={painting.artist} date={painting.date} link={painting.link} key={painting._id} idNum={painting._id} />
+        return <PaintingCard  class="card" title={painting.title} artist={painting.artist} date={painting.date} link={painting.link} key={painting.idNum} idNum={painting.idNum} />
     };
 
-      useEffect(() => {
-        axios.get('https://us-west-2.aws.data.mongodb-api.com/app/art-gallery-vbfmj/endpoint/gallery')
+    const getPaintings = async () => {
+        await axios.get('https://us-west-2.aws.data.mongodb-api.com/app/art-gallery-vbfmj/endpoint/gallery')
         .then(res => {
             setCollection(res.data)
         })
+    }
+
+      useEffect(() => {
+        getPaintings()
         .catch(error => console.log(error.message))
       }, []);
     
 
     return (
         <Container id="paintings">
+            {/* <Spinner animation="border" /> */}
             <Row>
                 {loadPaintings(collection)}
             </Row>

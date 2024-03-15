@@ -8,9 +8,13 @@ import axios from 'axios';
 const PaintingCard = (props) => {
   const [modalShow, setModalShow] = useState(false);
 
-  const deletePainting = () => {
-    axios.delete(`http://localhost:3000/gallery/${props.idNum}`)
-    .then(window.location.assign('/gallery'))
+  const deletePainting = async () => {
+    await axios.delete(`https://us-west-2.aws.data.mongodb-api.com/app/art-gallery-vbfmj/endpoint/painting?idNum=${props.idNum}`)
+  }
+
+  const handleDelete = () => {
+    deletePainting()
+    .then(() => {window.location.replace('/gallery')})
     .catch(err => {
       console.log(err)
     });
@@ -30,9 +34,9 @@ const PaintingCard = (props) => {
         </ListGroup.Item>
         <ListGroup.Item>
           <Button  className="btn" variant='primary' onClick={() => setModalShow(true)} size="md" href="#">Edit</Button>
-          <EditModal show={modalShow} title={props.title} artist={props.artist} date={props.date} link={props.link} idnum={props.idNum} onHide={() => setModalShow(false)} />
+          <EditModal show={modalShow} title={props.title} artist={props.artist} date={props.date} link={props.link} idNum={props.idNum} handleDelete={handleDelete} onHide={() => setModalShow(false)} />
 
-          <Button  className="btn" variant="danger" size="md" href="#" onClick={() => {deletePainting()}}>Delete</Button>
+          <Button  className="btn" variant="danger" size="md" href="#" onClick={() => {handleDelete()}}>Delete</Button>
         </ListGroup.Item>
       </ListGroup>
     </Card>
