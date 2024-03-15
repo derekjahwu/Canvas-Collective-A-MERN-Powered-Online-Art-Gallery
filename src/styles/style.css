@@ -25,6 +25,12 @@ grid-breakpoints {
     margin-right:10px;
 }
 
+#spinner{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media (max-width: 750px) {
     .row{
         justify-content: center;
