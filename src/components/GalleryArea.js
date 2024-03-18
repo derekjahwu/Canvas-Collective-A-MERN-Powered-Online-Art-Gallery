@@ -18,10 +18,6 @@ const GalleryArea = () => {
         return <PaintingCard  class="card" title={painting.title} artist={painting.artist} date={painting.date} link={painting.link} key={painting.idNum} idNum={painting.idNum} />
     };
 
-    const removeSpinner = () => {
-        setShow("none")
-    }
-
     const getPaintings = async () => {
         await axios.get('https://us-west-2.aws.data.mongodb-api.com/app/art-gallery-vbfmj/endpoint/gallery')
         .then(res => {
