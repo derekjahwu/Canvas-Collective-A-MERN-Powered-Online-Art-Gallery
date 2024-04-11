@@ -31,12 +31,11 @@ const handleTitleChange = (e) => {
   }
 
   const postPainting = async () => {
-      await axios.post(`https://us-west-2.aws.data.mongodb-api.com/app/art-gallery-vbfmj/endpoint/painting`,{
+      await axios.post(`https://express-paintings-server.onrender.com/api/paintings`,{
       title: title,
       artist: artist,
       date: date,
       link: link,
-      idNum: Date.now().toString()
       })
   }
 
@@ -76,8 +75,8 @@ const handleTitleChange = (e) => {
                         <Form.Control type="text" onChange={handleArtistChange} value={artist} required />
                     </Form.Group>
                     <Form.Group className="mb-3">
-                        <Form.Label>Date or Date Range</Form.Label>
-                        <Form.Control type="text" onChange={handleDateChange} value={date} required />
+                        <Form.Label>Year</Form.Label>
+                        <Form.Control type="number" onChange={handleDateChange} value={date} required />
                     </Form.Group>
                     <Form.Group className="mb-3">
                         <Form.Label>Link to View</Form.Label>

@@ -26,12 +26,11 @@ const EditModal = (props) => {
   }
 
   const updatePainting = async () => {
-    await axios.put(`https://us-west-2.aws.data.mongodb-api.com/app/art-gallery-vbfmj/endpoint/painting?idNum=${props.idNum}`, {
+    await axios.put(`https://express-paintings-server.onrender.com/api/paintings/${props._id}`, {
       "title": newTitle === '' ? props.title : newTitle,
       "artist": newArtist === '' ? props.artist : newArtist,
       "date": newDate === '' ? props.date : newDate,
       "link": newLink === '' ? props.link : newLink,
-      "idNum": props.idNum
     })
   }
 
@@ -60,7 +59,7 @@ const EditModal = (props) => {
                         <Form.Control type="text" onChange={handleArtistChange}  />
                     </Form.Group>
                     <Form.Group className="mb-3">
-                        <Form.Label>Date or Date Range: <b>{props.date}</b></Form.Label>
+                        <Form.Label>Year: <b>{props.date}</b></Form.Label>
                         <Form.Control type="text" onChange={handleDateChange} />
                     </Form.Group>
                     <Form.Group className="mb-3">
@@ -70,9 +69,6 @@ const EditModal = (props) => {
                 </Form>
       </Modal.Body>
       <Modal.Footer>
-      <Button  className="btn" variant="danger" size="md" href="#" onClick={() => {
-        props.handleDelete()
-        }}>Delete</Button>
         <Button onClick={() => {
           handleUpdate()
           }}>Save Changes</Button>
