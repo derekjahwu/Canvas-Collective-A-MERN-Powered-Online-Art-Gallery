@@ -6,7 +6,7 @@ const Navbar = () => {
     return (
         <NavMenu expand="md" className="bg-body-tertiary">
         <Container>
-          <NavMenu.Brand href="/">Art Gallery API</NavMenu.Brand>
+          <NavMenu.Brand href="/">Canvas Collective</NavMenu.Brand>
           <NavMenu.Toggle aria-controls="basic-navbar-nav" />
           <NavMenu.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
