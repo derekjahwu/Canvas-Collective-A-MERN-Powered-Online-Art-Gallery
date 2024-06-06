@@ -1,8 +1,12 @@
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import Submit from '../components/Submit'
+import PaintingForm from '../components/PaintingForm'
 import '../styles/style.css'
 
+/**
+ * @component
+ * @returns This returns the JSX for the Home page
+ */
 const Index = () => {
     return (
         <div className="main-container">
@@ -12,7 +16,7 @@ const Index = () => {
                 <Button variant='primary' size="md" href="/gallery">View Gallery</Button>
                 <hr />
             </Container>
-            <Submit />
+            <PaintingForm />
         </div>
     )
 }

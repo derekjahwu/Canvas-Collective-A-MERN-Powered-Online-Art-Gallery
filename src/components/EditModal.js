@@ -5,7 +5,18 @@ import Form from 'react-bootstrap/Form';
 import React, {useState} from 'react'
 import axios from 'axios';
 
-
+/**
+ * This is the Component for the Modal when a user clicks Edit for a painting
+ * 
+ * @component
+ * @param {Object} props - The component props of the painting details
+ * @param {string} props.title - The title of the painting
+ * @param {string} props.artist - The artist of the painting
+ * @param {string} props.date - The date the painting was made
+ * @param {string} props.link - A link to view the painting in a the browser
+ * @returns {JSX.Element} A modal enabling the user to edit painting details
+ * 
+ */
 const EditModal = (props) => {
   const [newTitle, setTitle] = useState('');
   const [newArtist, setArtist] = useState('')
@@ -25,6 +36,9 @@ const EditModal = (props) => {
     setLink(e.target.value)
   }
 
+  /**
+   * @function updatePainting This function checks the form for new data and updates the state accordingly, then submits a new PUT request to the Express server
+   */
   const updatePainting = async () => {
     await axios.put(`https://express-paintings-server.onrender.com/api/paintings/${props._id}`, {
       "title": newTitle === '' ? props.title : newTitle,
@@ -32,10 +46,6 @@ const EditModal = (props) => {
       "date": newDate === '' ? props.date : newDate,
       "link": newLink === '' ? props.link : newLink,
     })
-  }
-
-  const handleUpdate = () => {
-    updatePainting()
     .then(() => {
       props.onHide()
       window.location.replace('/gallery')
@@ -60,7 +70,7 @@ const EditModal = (props) => {
                     </Form.Group>
                     <Form.Group className="mb-3">
                         <Form.Label>Year: <b>{props.date}</b></Form.Label>
-                        <Form.Control type="text" onChange={handleDateChange} />
+                        <Form.Control type="number" onChange={handleDateChange} />
                     </Form.Group>
                     <Form.Group className="mb-3">
                         <Form.Label>Link to <a href={props.link} target="_blank" rel="noreferrer">View</a></Form.Label>
@@ -70,7 +80,7 @@ const EditModal = (props) => {
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={() => {
-          handleUpdate()
+          updatePainting()
           }}>Save Changes</Button>
           
       </Modal.Footer>

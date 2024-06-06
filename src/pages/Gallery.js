@@ -4,6 +4,10 @@ import Container from 'react-bootstrap/Container';
 import React from 'react'
 import '../styles/style.css'
 
+/**
+ * @component
+ * @returns This returns the JSX for the Gallery page
+ */
 const Gallery = () => {
     return(
         <div className="main-container">
