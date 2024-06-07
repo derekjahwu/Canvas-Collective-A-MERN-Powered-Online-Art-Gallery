@@ -17,6 +17,11 @@ const [btn, setBtn] = useState("Submit")
 const [btnDisplay, setbtnDisplay] = useState("none")
 const [btnStatus, setbtnStatus] = useState(false)
 
+/**
+ * @component
+ * @returns {JSX.Element} This returns the rendered PaintingForm component
+ */
+
 const handleTitleChange = (e) => {
     setTitle(e.target.value)
   }
@@ -30,6 +35,9 @@ const handleTitleChange = (e) => {
     setLink(e.target.value)
   }
 
+  /**
+   * @function postPainting This asynchronously handles sending the POST request to the express server
+   */
   const postPainting = async () => {
       await axios.post(`https://express-paintings-server.onrender.com/api/paintings`,{
       title: title,
@@ -39,6 +47,11 @@ const handleTitleChange = (e) => {
       })
   }
 
+  /**
+   * @function handleSubmit This function handles the fulfilled post request of the new Painting and resets the form fields
+   * @param {Event} e This prevents the default form action to refresh on submission
+   *  
+   */
     const handleSubmit = (e) => {
         e.preventDefault();
         setBtn(" ...Uploading")

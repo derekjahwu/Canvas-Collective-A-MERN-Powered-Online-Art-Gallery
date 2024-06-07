@@ -2,6 +2,11 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import NavMenu from 'react-bootstrap/Navbar';
 
+/**
+ * @component 
+ * @returns {JSX.Element} This returns the rendered Navbar component
+ */
+
 const Navbar = () => {
     return (
         <NavMenu expand="md" className="bg-body-tertiary">

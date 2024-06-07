@@ -5,16 +5,25 @@ import React, {useState} from 'react';
 import EditModal from './EditModal';
 import axios from 'axios';
 
+/**
+ * 
+ * @param {Object} props - The component props passed from GalleryArea
+ * @param {string} props._id - The key used to determine which painting will be deleted
+ * @param {string} props.title - The title of the painting
+ * @param {string} props.artist - The artist of the painting
+ * @param {string} props.date - The date the painting was made
+ * @param {string} props.link - A link to view the painting in a the browser
+ * @returns {JSX.Element} - This returns the rendered PaintingCard component
+ */
 const PaintingCard = (props) => {
   const [modalShow, setModalShow] = useState(false);
 
+  /**
+   * @function deletePainting This function asynchronously handles sending the delete request of a painting
+   */
   const deletePainting = async () => {
     await axios.delete(`https://express-paintings-server.onrender.com/api/paintings/${props._id}`)
-  }
-
-  const handleDelete = () => {
-    deletePainting()
-    .then(() => {window.location.replace('/gallery')})
+    .then(() => window.location.replace('/gallery'))
     .catch(err => {
       console.log(err)
     });
@@ -35,8 +44,7 @@ const PaintingCard = (props) => {
         <ListGroup.Item>
           <Button  className="btn" variant='primary' onClick={() => setModalShow(true)} size="md" href="#">Edit</Button>
           <EditModal show={modalShow} title={props.title} artist={props.artist} date={props.date} link={props.link} _id={props._id} onHide={() => setModalShow(false)} />
-
-          <Button  className="btn" variant="danger" size="md" href="#" onClick={handleDelete}>Delete</Button>
+          <Button  className="btn" variant="danger" size="md" href="#" onClick={deletePainting}>Delete</Button>
         </ListGroup.Item>
       </ListGroup>
     </Card>
