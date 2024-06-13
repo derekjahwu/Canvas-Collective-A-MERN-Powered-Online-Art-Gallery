@@ -14,8 +14,8 @@ const [date, setDate] = useState('')
 const [link, setLink] = useState('')
 const [show, setShow] = useState(false)
 const [btn, setBtn] = useState("Submit")
-const [btnDisplay, setbtnDisplay] = useState("none")
-const [btnStatus, setbtnStatus] = useState(false)
+const [spinnerDisplay, setspinnerDisplay] = useState("none")
+const [spinnerStatus, setspinnerStatus] = useState(false)
 
 /**
  * @component
@@ -55,8 +55,8 @@ const handleTitleChange = (e) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setBtn(" ...Uploading")
-        setbtnDisplay("inline-block")
-        setbtnStatus(true)
+        setspinnerDisplay("inline-block")
+        setspinnerStatus(true)
 
         postPainting()
         .then(() => {
@@ -66,8 +66,8 @@ const handleTitleChange = (e) => {
           setLink('')
           setShow(true)
           setBtn("Submit")
-          setbtnDisplay("none")
-          setbtnStatus(false)
+          setspinnerDisplay("none")
+          setspinnerStatus(false)
 
           setTimeout(() => {
             setShow(false)
@@ -77,7 +77,7 @@ const handleTitleChange = (e) => {
     }
 
     return (
-            <Container fluid="sm">
+            <Container fluid="sm" className="form">
                 <Form className="d-grid mt-2" onSubmit={handleSubmit} method="POST"> 
                     <Form.Group className="mb-3">
                         <Form.Label>Title</Form.Label>
@@ -95,8 +95,8 @@ const handleTitleChange = (e) => {
                         <Form.Label>Link to View</Form.Label>
                         <Form.Control type="url" onChange={handleLinkChange} value={link} required />
                     </Form.Group>
-                    <Button className="mt-2" variant="primary" type="submit" size="lg" gap={4} disabled={btnStatus} >
-                    <Spinner as="span" animation="border" size="sm" role="status" aria-hidden="true" style={{display:btnDisplay}}/>{btn}
+                    <Button className="mt-2" type="submit" size="lg" gap={4} disabled={spinnerStatus} >
+                    <Spinner as="span" animation="border" size="sm" role="status" aria-hidden="true" style={{display:spinnerDisplay}}/>{btn}
                     </Button>
                 </Form>
                 <Alert show={show} variant='primary'>

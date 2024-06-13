@@ -1,6 +1,8 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import NavMenu from 'react-bootstrap/Navbar';
+import Image from 'react-bootstrap/Image';
+
 
 /**
  * @component 
@@ -9,6 +11,7 @@ import NavMenu from 'react-bootstrap/Navbar';
 
 const Navbar = () => {
     return (
+      <Container className="nav-container" fluid>
         <NavMenu expand="md" className="bg-body-tertiary">
         <Container>
           <NavMenu.Brand href="/">Canvas Collective</NavMenu.Brand>
@@ -20,7 +23,9 @@ const Navbar = () => {
             </Nav>
           </NavMenu.Collapse>
         </Container>
-      </NavMenu>
+        </NavMenu>
+        <Image className="hero" fluid />
+      </Container>
     )
 }
 

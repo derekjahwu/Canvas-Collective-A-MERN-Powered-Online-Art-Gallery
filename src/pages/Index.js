@@ -13,7 +13,7 @@ const Index = () => {
             <Container className="mt-3">
                 <hr />
                 <h1>Add a Painting</h1>
-                <Button variant='primary' size="md" href="/gallery">View Gallery</Button>
+                <Button className="btn" size="md" href="/gallery">View Gallery</Button>
                 <hr />
             </Container>
             <PaintingForm />

@@ -28,6 +28,63 @@
   color: #61dafb;
 }
 
+.alert{
+  --bs-alert-bg: rgba(170, 142, 98, 0.349);
+  --bs-alert-border-color: rgba(170, 142, 98, 0.349);
+}
+
+.btn{
+  border-radius:3px;
+  background-color: rgb(170 142 98);
+  border:1px solid rgb(170 142 98);
+}
+
+.btn:hover{
+  background-color: rgb(53, 48, 40);
+  border:1px solid #000000
+}
+
+.btn-primary{
+  --bs-btn-active-bg:rgb(170 142 98);
+  --bs-btn-active-border-color:rgb(170 142 98);
+  --bs-btn-disabled-bg: rgb(170 142 98);
+  --bs-btn-disabled-border-color: rgb(170 142 98);
+}
+
+.delete{
+  background-color: #f04b54;
+  border:1px solid #f04b54;
+}
+
+.hero{
+  height:300px;
+  width:100%;
+  object-fit: cover; 
+  opacity:0.8;
+  content:url("./images/the_old_bridge_hero.jpg")
+}
+
+.nav-container{
+  width:100%;
+  padding:0px;
+}
+
+.form{
+  margin-bottom: 8em
+}
+
+@media screen and (max-device-width: 800px), screen and (max-width: 800px){
+  .hero{
+    height:200px;
+  }
+}
+
+@media screen and (max-device-width: 600px), screen and (max-width: 600px) {
+  .hero{
+    height:150px;
+  }
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

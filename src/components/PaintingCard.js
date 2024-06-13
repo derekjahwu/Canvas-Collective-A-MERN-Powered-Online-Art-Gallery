@@ -44,7 +44,7 @@ const PaintingCard = (props) => {
         <ListGroup.Item>
           <Button  className="btn" variant='primary' onClick={() => setModalShow(true)} size="md" href="#">Edit</Button>
           <EditModal show={modalShow} title={props.title} artist={props.artist} date={props.date} link={props.link} _id={props._id} onHide={() => setModalShow(false)} />
-          <Button  className="btn" variant="danger" size="md" href="#" onClick={deletePainting}>Delete</Button>
+          <Button  className="btn delete" variant="danger" size="md" href="#" onClick={deletePainting}>Delete</Button>
         </ListGroup.Item>
       </ListGroup>
     </Card>
