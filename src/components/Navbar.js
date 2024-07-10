@@ -1,7 +1,9 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import NavMenu from 'react-bootstrap/Navbar';
-import Image from 'react-bootstrap/Image';
+import Hero from './Hero';
+import image from '../images/the_old_bridge_hero.jpg'
+import { Link } from "react-router-dom";
 
 
 /**
@@ -10,21 +12,22 @@ import Image from 'react-bootstrap/Image';
  */
 
 const Navbar = () => {
+
     return (
       <Container className="nav-container" fluid>
         <NavMenu expand="md" className="bg-body-tertiary">
         <Container>
-          <NavMenu.Brand href="/">Canvas Collective</NavMenu.Brand>
+          <NavMenu.Brand href="/"><Link className="nav-link" to="/">Canvas Collective</Link></NavMenu.Brand>
           <NavMenu.Toggle aria-controls="basic-navbar-nav" />
           <NavMenu.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/gallery">Gallery</Nav.Link>
+                  <Link className="nav-link" to="/">Home</Link>
+                  <Link className="nav-link" to="/gallery">Gallery</Link>
             </Nav>
           </NavMenu.Collapse>
         </Container>
         </NavMenu>
-        <Image className="hero" fluid />
+        <Hero image={image} />
       </Container>
     )
 }
