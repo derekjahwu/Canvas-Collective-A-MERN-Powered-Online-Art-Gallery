@@ -1,6 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import PaintingForm from '../components/PaintingForm'
+import { Link } from "react-router-dom";
 import '../styles/style.css'
 
 /**
@@ -13,7 +14,9 @@ const Index = () => {
             <Container className="mt-3">
                 <hr />
                 <h1>Add a Painting</h1>
-                <Button className="btn" size="md" href="/gallery">View Gallery</Button>
+                <Button className="btn" size="md" href="/gallery">
+                    <Link className="nav-link" to="/gallery">View Gallery</Link>
+                </Button>
                 <hr />
             </Container>
             <PaintingForm />
